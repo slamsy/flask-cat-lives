@@ -5,7 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     x = Hangman()
-    return x.f()
+    x.guess("p")
+    return x.selectWord()
 
 @app.route('/hello')
 def hello():
@@ -13,9 +14,21 @@ def hello():
 
 class Hangman:
 
-    i=12345
     words = ["youtube","fantastic","test","bowels","alone","mercy"]
+    def __init__(self):
+        self.guessedLetters = []
+        self.word = self.selectWord()
+        self.wordLetters = list(self.word)
+        self.numberOfGuesses = 6
 
-    def f(self):
+    def selectWord(self):
         return self.words[random.randint(0,len(self.words)-1)]
 
+    def guess(self,letter):
+        self.guessedLetters.append(letter)
+        self.guessedLetters.sort()
+        self.numberofGuesses = self.numberOfGuesses - 1
+        self.checkForWin()
+
+    def checkForWin(self):
+        return 1
