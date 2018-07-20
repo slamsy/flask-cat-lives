@@ -1,5 +1,6 @@
 import random
 from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,6 +8,10 @@ def index():
     x = Hangman()
     x.guess("p")
     return x.selectWord()
+
+@app.route('/rest')
+def rest():
+    return render_template('hello.html', letters=['a','s','d',''])
 
 @app.route('/hello')
 def hello():
