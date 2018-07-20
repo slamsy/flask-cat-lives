@@ -10,7 +10,11 @@ def index():
 
 @app.route('/hello')
 def hello():
-    return str(random.randint(1,5))
+    return 'hello'
+
+@app.route('/<letter>')
+def guess(letter):
+    return len(letter)
 
 class Hangman:
 
