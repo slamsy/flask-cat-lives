@@ -23,9 +23,10 @@ def hello():
 @app.route('/<letter>')
 def guess(letter):
     hangman = Hangman(session['hangman'])
+    hangman.guess(letter)
     #hangman = json.loads(session['hangman'])
     #return json.dumps(hangman)
-    #return hangman.serialize()
+    return hangman.serialize()
     #hangman = session['hangman']
     return render_template('hello.html',letters=hangman.answer)
 
@@ -55,13 +56,13 @@ class Hangman:
         return self.words[random.randint(0,len(self.words)-1)]
 
     def guess(self,letter):
-        self.checkIfGuessed() #moved to top
+        self.checkIfGuessed(letter) #moved to top
         self.guessedLetters.append(letter)
         self.guessedLetters.sort() #why?
-        self.checkIfCorrect()
-        self.fillInTheBlanks()
+        self.checkIfCorrect(letter)
+        self.fillInTheBlanks(letter)
         self.checkForWin()
-        self.checkForLoss()
+        self.checkForLoss(letter)
 
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:
@@ -84,7 +85,7 @@ class Hangman:
         if len(self.wordLettersRemaining) == 0:
             return True #Celebratory ASCII
     
-    def checkForLoss(self):
+    def checkForLoss(self, input):
         if self.checkIfCorrect() == False:
             self.numberofGuesses = self.numberOfGuesses - 1
         if self.numberOfGuesses == 0:
