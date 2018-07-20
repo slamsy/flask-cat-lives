@@ -20,45 +20,44 @@ class Hangman:
         self.word = self.selectWord()
         self.wordLetters = list(self.word)
 		self.wordLettersRemaining = set(self.wordLetters)
-		self.Answer = []
+		self.answer = [''] * len(self.wordLetters)
         self.numberOfGuesses = 6
 
     def selectWord(self):
         return self.words[random.randint(0,len(self.words)-1)]
 
     def guess(self,letter):
+        self.checkIfGuessed() #moved to top
         self.guessedLetters.append(letter)
-        self.guessedLetters.sort()
-        self.checkIfGuessed()
+        self.guessedLetters.sort() #why?
         self.checkIfCorrect()
-        self.displayAnswer()
+        self.fillInTheBlanks()
         self.checkForWin()
         self.checkForLoss()
 
 	def checkIfGuessed(self,input):
-		x = 0
-		while x < len(self.guessedLetters)
-			if input == self.guessedLetters[x]
-				return True #Error
-				else x = x + 1
-		return False
+		for guessedLetter in self.guessedLetters:
+			if input == guessedLetter: 
+				return True #warning message
 			
 	def checkIfCorrect(self,input):	
 		if input in self.wordLetters:
 			self.wordLettersRemaining.remove(input)
 			return True
 
-	def displayAnswer():
-		y = self.wordLetters.index(input)
-		if input in self.wordLetters:
-			self.Answer.insert(y,input)	
+	def fillInTheBlanks(self,input):
+		index=0
+		while index < len(self.wordLetters):
+			if input == self.wordLetters[index]:
+				self.answer[index] = input
+			index += 1
 
-    def checkForWin():
-    	if len(self.wordLettersRemaining) == 0
+    def checkForWin(self):
+    	if len(self.wordLettersRemaining) == 0:
     		return True #Celebratory ASCII
     
-    def checkForLoss():
-    	if self.checkIfCorrect() == False
+    def checkForLoss(self):
+    	if self.checkIfCorrect() == False:
         	self.numberofGuesses = self.numberOfGuesses - 1
-        if self.numberOfGuesses == 0
+        if self.numberOfGuesses == 0:
         	return False #Mourning ASCII
