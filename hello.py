@@ -1,13 +1,16 @@
 import random
 from flask import Flask
 from flask import render_template
+from flask import session,json
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.route('/')
 def index():
-    x = Hangman()
-    x.guess("p")
-    return x.selectWord()
+    hangman = Hangman()
+    session['hangman'] = hangman.serialize()
+    #return hangman.serialize()
+    return render_template('hello.html',letters=hangman.answer)
 
 @app.route('/rest')
 def rest():
@@ -19,18 +22,34 @@ def hello():
 
 @app.route('/<letter>')
 def guess(letter):
-    return len(letter)
+    hangman = Hangman(session['hangman'])
+    #hangman = json.loads(session['hangman'])
+    #return json.dumps(hangman)
+    #return hangman.serialize()
+    #hangman = session['hangman']
+    return render_template('hello.html',letters=hangman.answer)
 
 class Hangman:
 
     words = ["youtube","fantastic","test","bowels","alone","mercy"]
-    def __init__(self):
-        self.guessedLetters = []
-        self.word = self.selectWord()
-        self.wordLetters = list(self.word)
-        self.wordLettersRemaining = set(self.wordLetters)
-        self.answer = [''] * len(self.wordLetters)
-        self.numberOfGuesses = 6
+    def __init__(self,data=None):
+        if data is None:
+            self.guessedLetters = []
+            self.word = self.selectWord()
+            self.wordLetters = list(self.word)
+            self.wordLettersRemaining = list(set(self.wordLetters))
+            self.answer = [''] * len(self.wordLetters)
+            self.numberOfGuesses = 6
+        else:
+            self.unserialize(data)
+
+    def serialize(self):
+        return json.dumps(self.__dict__)
+
+    def unserialize(self,data):
+        data = json.loads(data)
+        for key, value in data.items():
+            setattr(self,key,value)
 
     def selectWord(self):
         return self.words[random.randint(0,len(self.words)-1)]
