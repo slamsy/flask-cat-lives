@@ -1,11 +1,11 @@
 import pytest
 
-from hello import hello
+from hello import app
 
 @pytest.fixture
 def client():
-    hello.app.config['TESTING'] = True
-    client = hello.app.test_client()
+    app.config['TESTING'] = True
+    client = app.test_client()
 
     yield client
 
@@ -13,4 +13,4 @@ def test_hello(client):
     """basic hello world"""
 
     rv = client.get('/hello')
-    assert b'Hello' in rv.data
+    assert b'hello' in rv.data
