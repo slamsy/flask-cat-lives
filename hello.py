@@ -20,10 +20,10 @@ def rest():
 def hello():
     return 'hello'
 
-@app.route('/<letter>')
-def guess(letter):
+@app.route('/<input>')
+def guess(input):
     hangman = Hangman(session['hangman'])
-    hangman.guess(letter)
+    hangman.guess(letter=input)
     #hangman = json.loads(session['hangman'])
     #return json.dumps(hangman)
     return hangman.serialize()
@@ -40,7 +40,7 @@ class Hangman:
             self.wordLetters = list(self.word)
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
-            self.numberOfGuesses = 6
+            self.numberOfGuesses = 6          
         else:
             self.unserialize(data)
 
@@ -56,13 +56,13 @@ class Hangman:
         return self.words[random.randint(0,len(self.words)-1)]
 
     def guess(self,letter):
-        self.checkIfGuessed(letter) #moved to top
+        self.checkIfGuessed(input=letter) #moved to top
         self.guessedLetters.append(letter)
         self.guessedLetters.sort() #why?
-        self.checkIfCorrect(letter)
+        self.CorrectorIncorrect = self.checkIfCorrect(letter)
         self.fillInTheBlanks(letter)
         self.checkForWin()
-        self.checkForLoss(letter)
+        self.checkForLoss()
 
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:
@@ -70,9 +70,13 @@ class Hangman:
                 return True #warning message
             
     def checkIfCorrect(self,input): 
+        isCorrect = False
         if input in self.wordLetters:
             self.wordLettersRemaining.remove(input)
-            return True
+            isCorrect = True
+        else:
+            isCorrect = False
+        return isCorrect
 
     def fillInTheBlanks(self,input):
         index=0
@@ -84,9 +88,9 @@ class Hangman:
     def checkForWin(self):
         if len(self.wordLettersRemaining) == 0:
             return True #Celebratory ASCII
-    
-    def checkForLoss(self, input):
-        if self.checkIfCorrect() == False:
+        
+    def checkForLoss(self):
+        if self.CorrectorIncorrect == False:
             self.numberofGuesses = self.numberOfGuesses - 1
         if self.numberOfGuesses == 0:
             return False #Mourning ASCII
