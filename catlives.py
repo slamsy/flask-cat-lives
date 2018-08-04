@@ -16,7 +16,7 @@ def index():
         hangman = Hangman()
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
-    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed)
+    return render_template('catlives.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed, guesses=hangman.numberOfGuesses, win=hangman.hasWon, loss=hangman.hasLost)
 
 class Hangman:
 
@@ -27,8 +27,10 @@ class Hangman:
             self.wordLetters = list(self.word)
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
-            self.numberOfGuesses = 6 
-            self.alreadyGuessed = False         
+            self.numberOfGuesses = 6
+            self.alreadyGuessed = False  
+            self.hasWon = False
+            self.hasLost = False
         else:
             self.unserialize(data)
 
@@ -57,8 +59,8 @@ class Hangman:
         self.guessedLetters.sort()
         self.CorrectorIncorrect = self.checkIfCorrect(letter)
         self.fillInTheBlanks(letter)
-        self.checkForWin()
-        self.checkForLoss()
+        self.hasWon = self.checkForWin()
+        self.hasLost = self.checkForLoss()
 
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:
@@ -83,10 +85,12 @@ class Hangman:
 
     def checkForWin(self):
         if len(self.wordLettersRemaining) == 0:
-            return True #Celebratory ASCII
+            return True
         
     def checkForLoss(self):
         if self.CorrectorIncorrect == False:
-            self.numberofGuesses = self.numberOfGuesses - 1
-        if self.numberOfGuesses == 0:
-            return False #Mourning ASCII
+            self.numberOfGuesses = self.numberOfGuesses - 1
+            if self.numberOfGuesses == 0:
+                return True
+            return False
+
