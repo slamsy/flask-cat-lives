@@ -27,3 +27,15 @@ body {
 	padding-top: 0px;
 	color: #999;
 }
+
+.loss, .win {
+	font-size: 1.5vh;
+	color: black;
+	position: absolute;
+    left:0;
+    top:0;
+	width:100vw;
+	height:100vh;
+	background-color:#ffffff99;
+	text-align:center;
+}
