@@ -27,3 +27,8 @@ body {
 	padding-top: 0px;
 	color: #999;
 }
+
+.loss, .win {
+	font-size: 0.2em;
+	color: black;
+}

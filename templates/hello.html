@@ -4,6 +4,99 @@
 		<link href="static/hello.css" rel="stylesheet" />
 	</head>
 	<body>
+		<div class="win">
+		{% if win == True %}
+		<p>You won! You smart cookie, you.</p>
+		<pre>
+                   _  .-.
+                  ( `'  |
+                   `.  /
+                     |/
+                     '
+                 _    \ .        |
+                (_ |\/| L\ /` |/ |
+                __)|  | | \\_,|`\'
+              ,.--.
+            ,/     `\     \
+      _,-""-|        |     '
+    ,'       ;`-.,.-'       '
+   /          \   \       ,-.
+  ;           | /  `._.-. \_.r-"'-.    _.._
+  ;        .-./   /|     )/        `''`    `'.
+  |       /       `     -'7         \         \  '.
+  ;       |_,           | \          `       ,|    \
+   \         `.      ___/  \               /;;.\    ;
+    \          |  .'` .'    `-._         /;;;;;||
+ f`'-'         /  _.-'          `'.      ||;;;;;|
+  \          .'|_\.-. .-.          `\   f\';;;'/  |
+   `-.___,.'``'-.| /_._/_            \__| `'-'` .'
+         /           _\'.)           '---'
+ .   |   \     _.-'.__7 /`.   _     /     `.
+ |   `.   `'-' |     _.'   t'` )   ;    |   \
+ \           _ | _.-'   _,'  .'    |    ;  |;;
+  `.       // '7;_,..-'` _,-`      ;    '  \ ;| .-._
+           `'-/'     __.-\_\        \    \ \`);f_,.-`
+             '--''"`` \.-'\ >"--._   `-|. `-`/
+        ____________.-f._.;"'--. _).--'__ | \
+    '''""""''''    (___<7/_______)(/_/`r `   `"-.mx___
+     Schulz                          `'------'--`  -- 
+		</pre>
+		{% endif %}
+		</div>
+		<div class="loss">
+		{% if True %}
+		<p>The Red Baron got you this time... Try again!</p>
+		<pre>
+
+                  XXXX
+                 X    XX
+                X  ***  X                XXXXX
+               X  *****  X            XXX     XX
+            XXXX ******* XXX      XXXX          XX
+          XX   X ******  XXXXXXXXX                XX XXX
+        XX      X ****  X                           X** X
+       X        XX    XX     X                      X***X
+      X         //XXXX       X                      XXXX
+     X         //   X                             XX
+    X         //    X          XXXXXXXXXXXXXXXXXX/
+    X     XXX//    X          X
+    X    X   X     X         X
+    X    X    X    X        X
+     X   X    X    X        X                    XX
+     X    X   X    X        X                 XXX  XX
+      X    XXX      X        X               X  X X  X
+      X             X         X              XX X  XXXX
+       X             X         XXXXXXXX\     XX   XX  X
+        XX            XX              X     X    X  XX
+          XX            XXXX   XXXXXX/     X     XXXX
+            XXX             XX***         X     X
+               XXXXXXXXXXXXX *   *       X     X
+                            *---* X     X     X
+                           *-* *   XXX X     X
+                           *- *       XXX   X
+                          *- *X          XXX
+                          *- *X  X          XXX
+                         *- *X    X            XX
+                         *- *XX    X             X
+                        *  *X* X    X             X
+                        *  *X * X    X             X
+                       *  * X**  X   XXXX          X
+                       *  * X**  XX     X          X
+                      *  ** X** X     XX          X
+                      *  **  X*  XXX   X         X
+                     *  **    XX   XXXX       XXX
+                    *  * *      XXXX      X     X
+                   *   * *          X     X     X
+     =======*******   * *           X     X      XXXXXXXX\
+            *         * *      /XXXXX      XXXXXXXX\      )
+       =====**********  *     X                     )  \  )
+         ====*         *     X               \  \   )XXXXX
+    =========**********       XXXXXXXXXXXXXXXXXXXXXX
+
+                       CURSE YOU RED BARON!!
+		</pre>
+		{% endif %}
+		</div>
 		<p>Number of lives:</p><p>{{ guesses }}</p>
 		<p>Fill in the blanks:</p>
 		<div>
