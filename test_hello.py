@@ -1,7 +1,7 @@
 import pytest
 import flask
 
-from hello import app
+from catlives import app
 
 @pytest.fixture
 def client():
@@ -15,8 +15,8 @@ def test_hello(client):
 
     rv = client.get('/')
     with client.session_transaction() as sess:
-        sess['hangman'] = '{"CorrectorIncorrect": false, "answer": ["", "", "", ""], "guessedLetters": ["z", "z"], "numberOfGuesses": 6, "numberofGuesses": 5, "word": "test", "wordLetters": ["t", "e", "s", "t"], "wordLettersRemaining": ["t", "e", "s"]}'
+        sess['hangman'] = '{"alreadyGuessed": false, "answer": ["", "", "", "", "", ""], "guessedLetters": [], "hasLost": false, "hasWon": false, "numberOfGuesses": 6, "word": "macled", "wordLetters": ["m", "a", "c", "l", "e", "d"], "wordLettersRemaining": ["c", "m", "d", "a", "e", "l"]}'
     rv2 = client.get('/?guess=z')
     blankCount = rv2.data.count(b"blank\'")
-    assert blankCount == 4
-    assert b'5' in rv.data
+    assert blankCount == 6
+    assert b'5' in rv2.data
