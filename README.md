@@ -1,5 +1,5 @@
 # TODO
-* fix new game button
+* ~~fix new game button~~
 * ~~fix number of lives~~
 * add message for win/loss
 * ~~add licence~~
