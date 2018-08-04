@@ -5,3 +5,4 @@
 * ~~add licence~~
 * ~~add dictionary (word length levels)~~
 * deal with already guessed letters
+* gracefully handle lost session / guessed letter with no session
