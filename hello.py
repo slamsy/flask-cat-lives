@@ -16,7 +16,7 @@ def index():
         hangman = Hangman()
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
-    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed)
+    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed, guesses=hangman.numberOfGuesses)
 
 class Hangman:
 
@@ -27,7 +27,7 @@ class Hangman:
             self.wordLetters = list(self.word)
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
-            self.numberOfGuesses = 6 
+            self.numberOfGuesses = 6
             self.alreadyGuessed = False         
         else:
             self.unserialize(data)
