@@ -11,7 +11,7 @@
 			<div class='blank'>{{ letter }}</div>
 			{% endfor %}
 		</div>
-		<p><form action="/"><input name="guess" type='text' maxlength='1' required><button type="submit">Guess!</button></form></p>
+		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button></form></p>
 		<div>
 			{% if guessedLetters %}
 			<p>{{ guessedLetters }}</p>
