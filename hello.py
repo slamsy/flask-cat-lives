@@ -16,7 +16,7 @@ def index():
         hangman = Hangman()
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
-    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters)
+    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed)
 
 class Hangman:
 
@@ -27,7 +27,8 @@ class Hangman:
             self.wordLetters = list(self.word)
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
-            self.numberOfGuesses = 6          
+            self.numberOfGuesses = 6 
+            self.alreadyGuessed = False         
         else:
             self.unserialize(data)
 
@@ -49,9 +50,11 @@ class Hangman:
         return words[random.randint(0,len(words)-1)]
 
     def guess(self,letter):
-        self.checkIfGuessed(input=letter) #moved to top
+        self.alreadyGuessed = self.checkIfGuessed(input=letter)
+        if self.alreadyGuessed == True:
+            return True
         self.guessedLetters.append(letter)
-        self.guessedLetters.sort() #why?
+        self.guessedLetters.sort()
         self.CorrectorIncorrect = self.checkIfCorrect(letter)
         self.fillInTheBlanks(letter)
         self.checkForWin()
@@ -60,7 +63,7 @@ class Hangman:
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:
             if input == guessedLetter: 
-                return True #warning message
+                return True 
             
     def checkIfCorrect(self,input): 
         isCorrect = False
