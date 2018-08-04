@@ -38,7 +38,6 @@ def guess(input):
 
 class Hangman:
 
-    words = ["youtube","fantastic","test","bowels","alone","mercy"]
     def __init__(self,data=None):
         if data is None:
             self.guessedLetters = []
@@ -50,6 +49,11 @@ class Hangman:
         else:
             self.unserialize(data)
 
+    def loadDictionary(self):
+        with open('big_dict.txt') as dictionary:
+            words = dictionary.read().split()
+        return words
+
     def serialize(self):
         return json.dumps(self.__dict__)
 
@@ -59,7 +63,8 @@ class Hangman:
             setattr(self,key,value)
 
     def selectWord(self):
-        return self.words[random.randint(0,len(self.words)-1)]
+        words = self.loadDictionary()
+        return words[random.randint(0,len(words)-1)]
 
     def guess(self,letter):
         self.checkIfGuessed(input=letter) #moved to top
