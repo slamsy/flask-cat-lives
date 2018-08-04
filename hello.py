@@ -87,6 +87,6 @@ class Hangman:
         
     def checkForLoss(self):
         if self.CorrectorIncorrect == False:
-            self.numberofGuesses = self.numberOfGuesses - 1
+            self.numberOfGuesses = self.numberOfGuesses - 1
         if self.numberOfGuesses == 0:
             return False #Mourning ASCII
