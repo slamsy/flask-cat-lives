@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Cat Lives minus three</title>
+		<link href="static/hello.css" rel="stylesheet" />
+	</head>
+	<body>
+		<p>Number of lives:</p><p>6</p>
+		<p>Fill in the blanks:</p>
+		<div>
+			{% for letter in letters %}
+			<div class='blank'>{{ letter }}</div>
+			{% endfor %}
+		</div>
+		<p><form action="/"><input name="guess" type='text' maxlength='1' required><button type="submit">Guess!</button></form></p>
+		<p><button>New Game</button></p>
+	</body>
+</html>
+
