@@ -16,25 +16,7 @@ def index():
         hangman = Hangman()
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
-    return render_template('hello.html',letters=hangman.answer)
-
-@app.route('/rest')
-def rest():
-    return render_template('hello.html', letters=['a','s','d',''])
-
-@app.route('/hello')
-def hello():
-    return 'hello'
-
-@app.route('/<input>')
-def guess(input):
-    hangman = Hangman(session['hangman'])
-    hangman.guess(letter=input)
-    #hangman = json.loads(session['hangman'])
-    #return json.dumps(hangman)
-    return hangman.serialize()
-    #hangman = session['hangman']
-    return render_template('hello.html',letters=hangman.answer)
+    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters)
 
 class Hangman:
 
