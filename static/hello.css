@@ -29,6 +29,13 @@ body {
 }
 
 .loss, .win {
-	font-size: 0.2em;
+	font-size: 1.5vh;
 	color: black;
+	position: absolute;
+        left:0;
+        top:0;
+        width:100vw;
+        height:100vh;
+        background-color:#ffffff99;
+        text-align:center;
 }
