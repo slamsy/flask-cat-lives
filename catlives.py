@@ -9,7 +9,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 @app.route('/')
 def index():
     letter = request.args.get('guess')
-    if letter:
+    if letter and 'hangman' in session:
         hangman = Hangman(session['hangman'])
         hangman.guess(letter)
     else:
@@ -17,6 +17,11 @@ def index():
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
     return render_template('catlives.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed, guesses=hangman.numberOfGuesses, win=hangman.hasWon, loss=hangman.hasLost)
+
+@app.route('/rs')
+def reset():
+    session.clear()
+    return "session reset"
 
 class Hangman:
 
