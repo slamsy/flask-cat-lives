@@ -10,7 +10,7 @@ def client():
 
     yield client
 
-def test_hello(client):
+def test_catty(client):
     """basic hello world"""
 
     rv = client.get('/')
@@ -20,3 +20,14 @@ def test_hello(client):
     blankCount = rv2.data.count(b"blank\'")
     assert blankCount == 6
     assert b'5' in rv2.data
+    rv3 = client.get('/?guess=m')
+    assert b'5' in rv3.data #correct guess, no loss
+    mCount = rv3.data.count(b">m<")
+    assert mCount == 1
+    rv4 = client.get('/?guess=n')
+    rv5 = client.get('/?guess=o')
+    rv6 = client.get('/?guess=p')
+    rv7 = client.get('/?guess=q')
+    rv8 = client.get('/?guess=r')
+    assert b'0' in rv8.data
+    assert b'CURSE' in rv8.data
