@@ -4,8 +4,8 @@
 		<link href="static/catlives.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<div class="win">
 		{% if win == True %}
+		<div class="win">
 		<p>You won! You smart cookie, you.</p>
 		<pre>
                    _  .-.
@@ -41,13 +41,13 @@
     '''""""''''    (___<7/_______)(/_/`r `   `"-.mx___
      Schulz                          `'------'--`  -- 
 		</pre>
-		{% endif %}
+		<p><form action="/"><button>New Game</button></form></p>
 		</div>
+		{% endif %}
+		{% if loss == True %}
 		<div class="loss">
-		{% if True %}
 		<p>The Red Baron got you this time... Try again!</p>
 		<pre>
-
                   XXXX
                  X    XX
                 X  ***  X                XXXXX
@@ -95,8 +95,9 @@
 
                        CURSE YOU RED BARON!!
 		</pre>
-		{% endif %}
+		<p><form action="/"><button>New Game</button></form></p>
 		</div>
+		{% endif %}
 		<p>Number of lives:</p><p>{{ guesses }}</p>
 		<p>Fill in the blanks:</p>
 		<div>
@@ -108,12 +109,12 @@
 		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}</form></p>
 		<div>
 			{% if guessedLetters %}
-			<p>{{ guessedLetters }}</p>
+			<p>Guessed Letters: {{ guessedLetters }}</p>
 			{% else %}
 			<p>Please guess a letter!</p>
 			{% endif %}
 		</div>
-		<p><form action="/"><button>New Game</button><form></p>
+		<p><form action="/"><button>New Game</button></form></p>
 	</body>
 </html>
 

@@ -1,41 +1,54 @@
 body {
-	font-size: 2em; /* Resets 1em to 10px */
-	margin: 0;
-	padding: 0;
-	font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-	color: #F3A61B;
-	font-variant: small-caps;
-	margin-left: 2em;
+    font-size: 2em; /* Resets 1em to 10px */
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    color: #F3A61B;
+    font-variant: small-caps;
+    margin-left: 2em;
 }
 
 .blank, input {
-	font-size: 2em;
-	border:0;
-	border-bottom: 0.1em solid brown;
-	margin: 0.1em;
-	padding: 0.1em;
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	text-align: center;
-	vertical-align: middle;
+    font-size: 2em;
+    border:0;
+    border-bottom: 0.1em solid brown;
+    margin: 0.1em;
+    padding: 0.1em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #page {
-	width: 908px;
-	margin: 0 auto;
-	padding-top: 0px;
-	color: #999;
+    width: 908px;
+    margin: 0 auto;
+    padding-top: 0px;
+    color: #999;
 }
 
-.loss, .win {
-	font-size: 1.5vh;
-	color: black;
-	position: absolute;
+.win {
+    font-size: 2.2vh;
+    font-weight: bold;
+    color: brown;
+    font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    position: absolute;
     left:0;
     top:0;
-	width:100vw;
-	height:100vh;
-	background-color:#ffffff99;
-	text-align:center;
+    width:100vw;
+    height:100vh;
+    background-color:#ffffff99;
+}
+
+.loss {
+    font-size: 1.5vh;
+    color: brown;
+    font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    position: absolute;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-color:#ffffff99;
 }
