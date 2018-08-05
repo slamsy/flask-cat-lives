@@ -16,7 +16,7 @@ def index():
         hangman = Hangman()
     session['hangman'] = hangman.serialize()
     #return hangman.serialize()
-    return render_template('hello.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed, guesses=hangman.numberOfGuesses, win=hangman.hasWon, loss=hangman.hasLost)
+    return render_template('catlives.html',letters=hangman.answer, guessedLetters=hangman.guessedLetters, alreadyGuessed=hangman.alreadyGuessed, guesses=hangman.numberOfGuesses, win=hangman.hasWon, loss=hangman.hasLost)
 
 class Hangman:
 
