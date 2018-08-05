@@ -1,4 +1,4 @@
-import random
+import random, string
 from flask import Flask
 from flask import render_template
 from flask import session,json
@@ -16,7 +16,7 @@ def index():
         catlives = Catlives()
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
-    return render_template('catlives.html',letters=catlives.answer, guessedLetters=catlives.guessedLetters, alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost)
+    return render_template('catlives.html',letters=catlives.answer, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost)
 
 class Catlives:
 
