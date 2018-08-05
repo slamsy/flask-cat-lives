@@ -31,18 +31,13 @@ body {
 .win {
     font-size: 2.2vh;
     font-weight: bold;
-    color: brown;
-    font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    position: absolute;
-    left:0;
-    top:0;
-    width:100vw;
-    height:100vh;
-    background-color:#ffffff99;
 }
 
 .loss {
     font-size: 1.5vh;
+}
+
+.win, .loss {
     color: brown;
     font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     position: absolute;
@@ -50,5 +45,5 @@ body {
     top:0;
     width:100vw;
     height:100vh;
-    background-color:#ffffff99;
+    background-color:#ffffffee;
 }
