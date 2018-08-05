@@ -9,7 +9,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 @app.route('/')
 def index():
     letter = request.args.get('guess')
-    if letter:
+    if letter and 'catlives' in session:
         catlives = Catlives(session['catlives'])
         catlives.guess(letter)
     else:
@@ -17,6 +17,11 @@ def index():
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
     return render_template('catlives.html',letters=catlives.answer, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost)
+
+@app.route('/rs')
+def reset():
+    session.clear()
+    return "session reset"
 
 class Catlives:
 
