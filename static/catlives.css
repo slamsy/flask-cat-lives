@@ -28,14 +28,27 @@ body {
 	color: #999;
 }
 
-.loss, .win {
-	font-size: 1.5vh;
-	color: black;
+.win {
+	font-size: 2.2vh;
+	font-weight: bold;
+	color: brown;
+	font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 	position: absolute;
     left:0;
     top:0;
 	width:100vw;
 	height:100vh;
 	background-color:#ffffff99;
-	text-align:center;
+}
+
+.loss {
+	font-size: 1.5vh;
+	color: brown;
+	font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+	position: absolute;
+    left:0;
+    top:0;
+	width:100vw;
+	height:100vh;
+	background-color:#ffffff99;
 }
