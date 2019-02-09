@@ -32,7 +32,7 @@ class Catlives:
             self.wordLetters = list(self.word)
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
-            self.numberOfGuesses = 6
+            self.numberOfGuesses = 9
             self.alreadyGuessed = False  
             self.hasWon = False
             self.hasLost = False
