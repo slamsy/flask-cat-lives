@@ -16,7 +16,7 @@ def index():
         catlives = Catlives()
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
-    return render_template('catlives.html',letters=catlives.answer, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
+    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
 
 @app.route('/rs')
 def reset():
@@ -27,6 +27,7 @@ class Catlives:
 
     def __init__(self,data=None):
         if data is None:
+            self.guessedLetter = ""
             self.guessedLetters = []
             self.word = self.selectWord()
             self.wordLetters = list(self.word)
@@ -57,6 +58,7 @@ class Catlives:
         return words[random.randint(0,len(words)-1)]
 
     def guess(self,letter):
+        self.guessedLetter = letter
         self.alreadyGuessed = self.checkIfGuessed(input=letter)
         if self.alreadyGuessed == True:
             return True
