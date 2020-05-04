@@ -99,10 +99,23 @@
 		</div>
 		{% endif %}
 		<p>Number of lives:</p><p>{{ guesses }}</p>
+    <div style="border-bottom: 5px solid brown">
+      <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px" />
+      <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px" />
+      <img src="static/Cat_fluffy_1.svg" style="height:75px; position: relative; top: 15px;" />
+      <img src="static/Cat_jump.svg" style="height:150px; position: relative; top: 83px" />
+      <img src="static/Cat_sit_2.svg" style="height:75px; position: relative; top: 25px" />
+      <img src="static/Cat_sit_4.svg" style="height:75px; position: relative; top: 20px" />
+      <div style="width:15px; display:inline-block"></div>
+      <img src="static/Cat_stretch.svg" style="height:75px; position: relative; top: 17px" />
+      <div style="width:20px; display:inline-block"></div>
+      <img src="static/Cat_walk.svg" style="height:75px; position: relative; top: 10px" />
+      <img src="static/Cat_fluffy_2.svg" style="height:75px; position: relative; top: 15px" />
+    </div>
 		<p>Fill in the blanks:</p>
 		<div>
 			{% for letter in letters %}
-			<div class='blank'>{{ letter }}</div>
+			<div class='blank {% if guess==letter %}newBlankGuess{% endif %}'>{{ letter }}</div>
 			{% endfor %}
 		</div>
 		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button> 

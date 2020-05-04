@@ -21,6 +21,25 @@ body {
     vertical-align: middle;
 }
 
+.newBlankGuess {
+    animation-name: guessed;
+    animation-duration: 2s;
+}
+
+@keyframes guessed {
+    from {
+      opacity: 0;
+      text-shadow: 0px 0px 0px brown;
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 1px 1px 25px brown;
+    }
+    to {
+      text-shadow: 0px 0px 0px brown;
+    }
+}
+
 #page {
     width: 908px;
     margin: 0 auto;
