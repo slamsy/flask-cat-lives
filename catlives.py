@@ -16,7 +16,7 @@ def index():
         catlives = Catlives()
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
-    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
+    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, isCorrect=catlives.CorrectorIncorrect, guessedLetters=' '.join(catlives.guessedLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
 
 @app.route('/rs')
 def reset():
@@ -34,6 +34,7 @@ class Catlives:
             self.wordLettersRemaining = list(set(self.wordLetters))
             self.answer = [''] * len(self.wordLetters)
             self.numberOfGuesses = 9
+            self.CorrectorIncorrect = True
             self.alreadyGuessed = False  
             self.hasWon = False
             self.hasLost = False
