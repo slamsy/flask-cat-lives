@@ -99,8 +99,7 @@
 		<p><form action="/"><button>New Game</button></form></p>
 		</div>
 		{% endif %}
-		<p>Number of lives:</p><p>{{ guesses }}</p>
-    <div style="border-bottom: 5px solid brown">
+    <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
       <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
       class="{% if guesses==0 %}dying{% endif %}" />
       <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
@@ -130,23 +129,23 @@
       class="{% if guesses==8 and not isCorrect %}dying{% endif %}
       {% if guesses<8 or guesses==8 and isCorrect %}dead{% endif %}" />
     </div>
-		<p>Fill in the blanks:</p>
 		<div>
-			{% for letter in letters %}
-			<div class='blank
-			{% if guess==letter %}newBlankGuess{% endif %}
-			{% if letter!="" and not letter.isalpha() %}punc{% endif %}'>{{ letter }}</div>
+			{% for subword in word.split() %}
+				<div style="display: inline-block">
+					{% for letter in subword %}
+					<div class='blank
+					{% if guess==letter %}newBlankGuess{% endif %}
+					{% if letter!="" and not letter.isalpha() %}punc{% endif %}'>
+						{% if letter==letters[loop.index-1] %}
+							{{ letter }}
+						{% endif %}
+					</div>
+					{% endfor %}
+				</div>
 			{% endfor %}
 		</div>
 		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button>
-		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}</form></p>
-		<div>
-			{% if guessedLetters %}
-			<p>Guessed Letters: {{ guessedLetters }}</p>
-			{% else %}
-			<p>Please guess a letter!</p>
-			{% endif %}
-		</div>
+		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</form></p>
 		<p><form action="/"><button>New Game</button></form></p>
 	</body>
 </html>

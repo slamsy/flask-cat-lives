@@ -5,7 +5,8 @@ body {
     font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     color: #F3A61B;
     font-variant: small-caps;
-    margin-left: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .blank, input {
