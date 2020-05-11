@@ -9,6 +9,15 @@ body {
     margin-right: 1em;
 }
 
+button {
+    background: linear-gradient(to right, #F3A61B, brown);
+    color: white;
+    font-size: 1em;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 1em;
+}
+
 .blank, input {
     font-size: 2em;
     border:0;
