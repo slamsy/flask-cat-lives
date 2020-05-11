@@ -142,6 +142,9 @@
 					</div>
 					{% endfor %}
 				</div>
+				{% if not loop.last %}
+					<div class='blank punc'></div>
+				{% endif %}
 			{% endfor %}
 		</div>
 		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button>
