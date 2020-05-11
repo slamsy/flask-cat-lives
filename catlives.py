@@ -38,13 +38,14 @@ class Catlives:
             self.alreadyGuessed = False  
             self.hasWon = False
             self.hasLost = False
+            self.fillPunctuation()
         else:
             self.unserialize(data)
 
     def loadDictionary(self):
-        with open('big_dict.txt') as dictionary:
-            words = dictionary.read().split()
-        return words
+        with open('phrase_dict.txt') as dictionary:
+            word = dictionary.read().split("\n")
+        return word
 
     def serialize(self):
         return json.dumps(self.__dict__)
@@ -55,8 +56,8 @@ class Catlives:
             setattr(self,key,value)
 
     def selectWord(self):
-        words = self.loadDictionary()
-        return words[random.randint(0,len(words)-1)]
+        word = self.loadDictionary()
+        return word[random.randint(0,len(word)-1)]
 
     def guess(self,letter):
         self.guessedLetter = letter
@@ -83,6 +84,14 @@ class Catlives:
         else:
             isCorrect = False
         return isCorrect
+    
+    def fillPunctuation(self):
+        index=0
+        while index < len(self.wordLettersRemaining):
+            if not self.wordLettersRemaining[index].isalpha():
+                self.fillInTheBlanks(self.wordLettersRemaining[index])
+                self.wordLettersRemaining.remove(self.wordLettersRemaining[index])
+            index += 1            
 
     def fillInTheBlanks(self,input):
         index=0
