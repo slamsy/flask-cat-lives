@@ -21,6 +21,10 @@ body {
     vertical-align: middle;
 }
 
+.punc {
+    border-bottom: 0;
+}
+
 .newBlankGuess {
     animation-name: guessed;
     animation-duration: 2s;

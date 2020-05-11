@@ -132,7 +132,9 @@
 		<p>Fill in the blanks:</p>
 		<div>
 			{% for letter in letters %}
-			<div class='blank {% if guess==letter %}newBlankGuess{% endif %}'>{{ letter }}</div>
+			<div class='blank
+			{% if guess==letter %}newBlankGuess{% endif %}
+			{% if letter!="" and not letter.isalpha() %}punc{% endif %}'>{{ letter }}</div>
 			{% endfor %}
 		</div>
 		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button> 
