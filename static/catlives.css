@@ -50,6 +50,7 @@ body {
 .dead {
     filter: blur(5px);
     opacity: .3
+    z-index: -1;
 }
 
 @keyframes died {
