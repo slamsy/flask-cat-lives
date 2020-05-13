@@ -2,7 +2,7 @@ body {
     font-size: 2em; /* Resets 1em to 10px */
     margin: 0;
     padding: 0;
-    font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-family: Ubuntu, Helvetica, Calibri, Verdana, sans-serif;
     color: #F3A61B;
     font-variant: small-caps;
     margin-left: 1em;
