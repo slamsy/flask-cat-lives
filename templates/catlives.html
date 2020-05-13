@@ -99,35 +99,48 @@
 		<p><form action="/"><button>NEW GAME</button></form></p>
 		</div>
 		{% endif %}
-    <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
-      <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
-      class="{% if guesses==0 %}dying{% endif %}" />
-      <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
-      class="{% if guesses==1 and not isCorrect %}dying{% endif %}
-      {% if guesses<1 or guesses==1 and isCorrect %}dead{% endif %}" />
-      <img src="static/Cat_fluffy_1.svg" style="height:75px; position: relative; top: 15px;"
-      class="{% if guesses==2 and not isCorrect %}dying{% endif %}
-      {% if guesses<2 or guesses==2 and isCorrect %}dead{% endif %}" />
-      <img src="static/Cat_jump.svg" style="height:150px; position: relative; top: 83px"
-      class="{% if guesses==3 and not isCorrect %}dying{% endif %}
-      {% if guesses<3 or guesses==3 and isCorrect %}dead{% endif %}" />
-      <img src="static/Cat_sit_2.svg" style="height:75px; position: relative; top: 25px"
-      class="{% if guesses==4 and not isCorrect %}dying{% endif %}
-      {% if guesses<4 or guesses==4 and isCorrect %}dead{% endif %}" />
-      <img src="static/Cat_sit_4.svg" style="height:75px; position: relative; top: 20px"
-      class="{% if guesses==5 and not isCorrect %}dying{% endif %}
-      {% if guesses<5 or guesses==5 and isCorrect %}dead{% endif %}" />
-      <div style="width:15px; display:inline-block"></div>
-      <img src="static/Cat_stretch.svg" style="height:75px; position: relative; top: 17px"
-      class="{% if guesses==6 and not isCorrect %}dying{% endif %}
-      {% if guesses<6 or guesses==6 and isCorrect %}dead{% endif %}" />
-      <div style="width:20px; display:inline-block"></div>
-      <img src="static/Cat_walk.svg" style="height:75px; position: relative; top: 10px"
-      class="{% if guesses==7 and not isCorrect %}dying{% endif %}
-      {% if guesses<7 or guesses==7 and isCorrect %}dead{% endif %}" />
-      <img src="static/Cat_fluffy_2.svg" style="height:75px; position: relative; top: 15px"
-      class="{% if guesses==8 and not isCorrect %}dying{% endif %}
-      {% if guesses<8 or guesses==8 and isCorrect %}dead{% endif %}" />
+    <div style="height:100px">
+      <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
+        <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
+        class="{% if guesses==0 %}dying{% endif %}" />
+        <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
+        class="{% if guesses==1 and not isCorrect %}dying{% endif %}
+        {% if guesses<1 or guesses==1 and isCorrect %}dead{% endif %}" />
+        <img src="static/Cat_fluffy_1.svg" style="height:75px; position: relative; top: 15px;"
+        class="{% if guesses==2 and not isCorrect %}dying{% endif %}
+        {% if guesses<2 or guesses==2 and isCorrect %}dead{% endif %}" />
+        <img src="static/Cat_jump.svg" style="height:150px; position: relative; top: 83px"
+        class="{% if guesses==3 and not isCorrect %}dying{% endif %}
+        {% if guesses<3 or guesses==3 and isCorrect %}dead{% endif %}" />
+        <img src="static/Cat_sit_2.svg" style="height:75px; position: relative; top: 25px"
+        class="{% if guesses==4 and not isCorrect %}dying{% endif %}
+        {% if guesses<4 or guesses==4 and isCorrect %}dead{% endif %}" />
+        <img src="static/Cat_sit_4.svg" style="height:75px; position: relative; top: 20px"
+        class="{% if guesses==5 and not isCorrect %}dying{% endif %}
+        {% if guesses<5 or guesses==5 and isCorrect %}dead{% endif %}" />
+        <div style="width:15px; display:inline-block"></div>
+        <img src="static/Cat_stretch.svg" style="height:75px; position: relative; top: 17px"
+        class="{% if guesses==6 and not isCorrect %}dying{% endif %}
+        {% if guesses<6 or guesses==6 and isCorrect %}dead{% endif %}" />
+        <div style="width:20px; display:inline-block"></div>
+        <img src="static/Cat_walk.svg" style="height:75px; position: relative; top: 10px"
+        class="{% if guesses==7 and not isCorrect %}dying{% endif %}
+        {% if guesses<7 or guesses==7 and isCorrect %}dead{% endif %}" />
+        <img src="static/Cat_fluffy_2.svg" style="height:75px; position: relative; top: 15px"
+        class="{% if guesses==8 and not isCorrect %}dying{% endif %}
+        {% if guesses<8 or guesses==8 and isCorrect %}dead{% endif %}" />
+      </div>
+      <div style="height:100px; position: absolute; top: 25px; font-size:2em;">
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+        <div style="width:75px;height:75px;display: inline-block;">E</div>
+      </div>
     </div>
 		<div>
 			{% for subword in word.split() %}
