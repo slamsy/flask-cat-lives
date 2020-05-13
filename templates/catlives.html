@@ -42,7 +42,7 @@
     '''""""''''    (___<7/_______)(/_/`r `   `"-.mx___
      Schulz                          `'------'--`  --
 		</pre>
-		<p><form action="/"><button>New Game</button></form></p>
+		<p><form action="/"><button>NEW GAME</button></form></p>
 		</div>
 		{% endif %}
 		{% if loss == True %}
@@ -96,7 +96,7 @@
 
                        CURSE YOU RED BARON!!
 		</pre>
-		<p><form action="/"><button>New Game</button></form></p>
+		<p><form action="/"><button>NEW GAME</button></form></p>
 		</div>
 		{% endif %}
     <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
@@ -147,8 +147,8 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">Guess!</button>
+		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">GUESS!</button>
 		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</form></p>
-		<p><form action="/"><button>New Game</button></form></p>
+		<p><form action="/"><button>NEW GAME</button></form></p>
 	</body>
 </html>

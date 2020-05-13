@@ -3,15 +3,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: Ubuntu, Helvetica, Calibri, Verdana, sans-serif;
-    color: #F3A61B;
+    color: #C10560;
     font-variant: small-caps;
     margin-left: 1em;
     margin-right: 1em;
 }
 
 button {
-    background: linear-gradient(to right, #F3A61B, brown);
-    color: white;
+    background-color: #C10560;
+    color: #FFE5F2;
     font-size: 1em;
     padding: 0.5em;
     margin: 0.5em;
@@ -21,7 +21,7 @@ button {
 .blank, input {
     font-size: 2em;
     border:0;
-    border-bottom: 0.1em solid brown;
+    border-bottom: 0.1em solid black;
     margin: 0.1em;
     padding: 0.1em;
     display: inline-block;
@@ -29,6 +29,7 @@ button {
     height: 1em;
     text-align: center;
     vertical-align: middle;
+    text-transform: uppercase;
 }
 
 .punc {
@@ -43,14 +44,14 @@ button {
 @keyframes guessed {
     from {
         opacity: 0;
-        text-shadow: 0px 0px 0px brown;
+        text-shadow: 0px 0px 0px black;
     }
     50% {
         opacity: 1;
-        text-shadow: 1px 1px 25px brown;
+        text-shadow: 1px 1px 25px black;
     }
     to {
-        text-shadow: 0px 0px 0px brown;
+        text-shadow: 0px 0px 0px black;
     }
 }
 
@@ -98,7 +99,7 @@ button {
 }
 
 .win, .loss {
-    color: brown;
+    color: black;
     font-family: Georgia, Tahoma, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     position: absolute;
     left:0;
