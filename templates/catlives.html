@@ -99,7 +99,7 @@
 		<p><form action="/"><button>NEW GAME</button></form></p>
 		</div>
 		{% endif %}
-    <div style="height:100px">
+    <div style="height:100px; position: relative">
       <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
         <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
         class="{% if guesses==0 %}dying{% endif %}" />
@@ -160,9 +160,9 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">GUESS!</button>
-		{% if alreadyGuessed == True %} Oops! You guessed this letter already. {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</form></p>
-		<p><form action="/"><button>NEW GAME</button></form></p>
-		<img src="static/9lives_logo.svg" style="height:200px; position: left;" alt="9lives logo with cat tail shaped as 9">
+		<form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">GUESS!</button>
+		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</form>
+		<form action="/"><button>NEW GAME</button></form>
+    <img src="static/9lives_logo.svg" style="height:200px; position: left;" alt="9lives logo with cat tail shaped as 9">
 	</body>
 </html>

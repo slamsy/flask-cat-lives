@@ -6,6 +6,10 @@ body {
     color: #C10560;
     margin-left: 1em;
     margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 button {
