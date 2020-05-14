@@ -100,7 +100,7 @@
 		</div>
 		{% endif %}
     <div style="height:100px; position: relative">
-      <div style="border-bottom: 5px solid brown; position: relative; top:-75px">
+      <div style="border-bottom: 5px solid #FFE5F2; position: relative; top:-75px">
         <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
         class="{% if guesses==0 %}dying{% endif %}" />
         <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
@@ -130,16 +130,16 @@
         class="{% if guesses==8 and not isCorrect %}dying{% endif %}
         {% if guesses<8 or guesses==8 and isCorrect %}dead{% endif %}" />
       </div>
-      <div style="height:100px; position: absolute; top: 25px; font-size:2em;">
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
-        <div style="width:75px;height:75px;display: inline-block;">E</div>
+      <div style="height:100px; position: absolute; top: 35px; font-size:2em;">
+        <div style="width:60px" class="wrong">{{ wrongLetters[8] }}</div>
+        <div style="width:70px" class="wrong">{{ wrongLetters[7] }}</div>
+        <div style="width:80px" class="wrong">{{ wrongLetters[6] }}</div>
+        <div style="width:75px" class="wrong">{{ wrongLetters[5] }}</div>
+        <div style="width:100px" class="wrong">{{ wrongLetters[4] }}</div>
+        <div style="width:75px" class="wrong">{{ wrongLetters[3] }}</div>
+        <div style="width:120px" class="wrong">{{ wrongLetters[2] }}</div>
+        <div style="width:90px" class="wrong">{{ wrongLetters[1] }}</div>
+        <div style="width:50px" class="wrong">{{ wrongLetters[0] }}</div>
       </div>
     </div>
 		<div>

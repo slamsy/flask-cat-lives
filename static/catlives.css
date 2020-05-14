@@ -71,6 +71,13 @@ button {
     z-index: -1;
 }
 
+.wrong {
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
 @keyframes died {
     from {
         filter: blur(0px);

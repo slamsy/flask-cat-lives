@@ -16,7 +16,7 @@ def index():
         catlives = Catlives()
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
-    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, isCorrect=catlives.CorrectorIncorrect, wrongLetters=' '.join(catlives.wrongLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
+    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, isCorrect=catlives.CorrectorIncorrect, wrongLetters=''.join(catlives.wrongLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
 
 @app.route('/rs')
 def reset():
