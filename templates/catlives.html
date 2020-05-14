@@ -2,7 +2,7 @@
 	<head>
 		<title>Cat Lives</title>
 		<link href="static/catlives.css" rel="stylesheet"/>
-		<link rel="icon" href="static/9lives_logo.svg">
+		<link rel="icon" href="static/9lives_favicon.svg">
 	</head>
 	<body>
 		{% if win == True %}
@@ -150,5 +150,6 @@
 		<p><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button type="submit">GUESS!</button>
 		{% if alreadyGuessed == True %} Oops! You guessed this letter already! {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</form></p>
 		<p><form action="/"><button>NEW GAME</button></form></p>
+		<img src="static/9lives_logo.svg" style="height:200px; position: left;" alt="9lives logo with cat tail shaped as 9">
 	</body>
 </html>
