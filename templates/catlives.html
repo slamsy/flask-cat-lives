@@ -149,7 +149,7 @@
 					<div class='blank
 					{% if guess==letter %}newBlankGuess{% endif %}
 					{% if letter!="" and not letter.isalpha() %}punc{% endif %}'>
-						{% if not letter.isalpha() or letter==letters[loop.index-1] %}
+						{% if not letter.isalpha() or letter in letters %}
 							{{ letter }}
 						{% endif %}
 					</div>
