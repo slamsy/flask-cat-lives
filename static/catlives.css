@@ -2,7 +2,7 @@ body {
     font-size: 1.2em; /* Resets 1em to 10px */
     margin: 0;
     padding: 0;
-    font-family: Ubuntu, Helvetica, Calibri, Verdana, sans-serif;
+    font-family: Ubuntu, Calibri, Verdana, sans-serif;
     color: #C10560;
     margin-left: 1em;
     margin-right: 1em;
@@ -15,8 +15,11 @@ body {
 .button {
     font-size: 0.7em;
     padding: 0.7em;
-    margin: 0.7em;
-    border-radius: 1em;
+    margin: 1.4em;
+    border-radius: 1.4em;
+    width: 10em;
+    font-family: Ubuntu, Calibri, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .guessButton {
@@ -26,7 +29,6 @@ body {
 
 .controls {
     display: flex;
-    justify-content: space-between;
 }
 
 .restartButton {
@@ -48,6 +50,7 @@ body {
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
+    font-family: Ubuntu, Calibri, Verdana, sans-serif;
 }
 
 .punc {
@@ -125,11 +128,32 @@ body {
 
 .win, .loss {
     color: black;
-    font-family: Ubuntu, Helvetica, Calibri, Verdana, sans-serif;
+    font-family: Ubuntu, Calibri, Verdana, sans-serif;
     position: absolute;
     left:0;
     top:0;
     width:100vw;
     height:100vh;
     background-color:#ffffffee;
+}
+
+.message {
+    font-size: 0.7em;
+    display: inline-block;
+    font-weight: bold;
+    background-image: url(../static/textbubble.svg);
+    background-size: 100% 100%;
+    min-width: 200px;
+    height: 120px;
+    margin-bottom:30px;
+}
+
+.message > div {
+    display: table-cell;
+    max-width: 300px;
+    padding-left: 30%;
+    padding-right: 10%;
+    height: 120px;
+    vertical-align: middle;
+    min-width: 200px;
 }
