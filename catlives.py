@@ -36,7 +36,7 @@ class Catlives:
             self.answer = [''] * len(self.wordLetters)
             self.numberOfGuesses = 9
             self.CorrectorIncorrect = True
-            self.alreadyGuessed = False  
+            self.alreadyGuessed = False
             self.hasWon = False
             self.hasLost = False
             self.fillPunctuation()
@@ -44,7 +44,7 @@ class Catlives:
             self.unserialize(data)
 
     def loadDictionary(self):
-        with open('phrase_dict.txt') as dictionary:
+        with open('yv_phrase_dict.txt') as dictionary:
             word = dictionary.read().split("\n")
         return word
 
@@ -76,10 +76,10 @@ class Catlives:
 
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:
-            if input == guessedLetter: 
-                return True 
-            
-    def checkIfCorrect(self,input): 
+            if input == guessedLetter:
+                return True
+
+    def checkIfCorrect(self,input):
         isCorrect = False
         if input in self.wordLetters:
             self.wordLettersRemaining.remove(input)
@@ -87,14 +87,14 @@ class Catlives:
         else:
             isCorrect = False
         return isCorrect
-    
+
     def fillPunctuation(self):
         index=0
         while index < len(self.wordLettersRemaining):
             if not self.wordLettersRemaining[index].isalpha():
                 self.fillInTheBlanks(self.wordLettersRemaining[index])
                 self.wordLettersRemaining.remove(self.wordLettersRemaining[index])
-            index += 1            
+            index += 1
 
     def fillInTheBlanks(self,input):
         index=0
@@ -106,11 +106,10 @@ class Catlives:
     def checkForWin(self):
         if len(self.wordLettersRemaining) == 0:
             return True
-        
+
     def checkForLoss(self):
         if self.CorrectorIncorrect == False:
             self.numberOfGuesses = self.numberOfGuesses - 1
             if self.numberOfGuesses == 0:
                 return True
             return False
-
