@@ -163,7 +163,7 @@
 		<div class="controls"><form action="/"><input name="guess" type='text' maxlength='1' autofocus required><button class="button guessButton" type="submit">GUESS!</button>
 		</form>
 		<form action="/"><button class="button restartButton">NEW GAME</button></form></div>
-    <div style="display: flex; align-items: self-end">
+    <div style="display: flex; align-items: flex-end">
       <img src="static/9lives_logo.svg" style="height:120px;" alt="9lives logo with cat tail shaped as 9" />
       <div class="message"><div>{% if alreadyGuessed == True %} Oops! You guessed this letter already. {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</div></div>
     </div>
