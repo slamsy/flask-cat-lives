@@ -54,6 +54,11 @@ body {
     font-family: Ubuntu, Calibri, Verdana, sans-serif;
 }
 
+input {
+    width: 1.2em;
+    background-color: #FFE5F2;
+}
+
 .punc {
     border-bottom: 0;
 }
@@ -156,5 +161,5 @@ body {
     padding-right: 10%;
     height: 120px;
     vertical-align: middle;
-    min-width: 200px;
+    min-width: 250px;
 }
