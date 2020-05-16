@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		{% if win == True %}
-		<div class="win">
+		<div class="winloss">
 		<p>You won! You smart cookie, you.</p>
 		<pre>
                    _  .-.
@@ -39,16 +39,16 @@
            `'-/'     __.-\_\        \    \ \`);f_,.-`
              '--''"`` \.-'\ >"--._   `-|. `-`/
         ____________.-f._.;"'--. _).--'__ | \
-    '''""""''''    (___<7/_______)(/_/`r `   `"-.mx___
+    '''""""''''    (___c7/_______)(/_/`r `   `"-.mx___
      Schulz                          `'------'--`  --
 		</pre>
 		<p><form action="/"><button class="button restartButton">NEW GAME</button></form></p>
 		</div>
 		{% endif %}
 		{% if loss == True %}
-		<div class="loss">
+		<div class="winloss">
 			<p>The Red Baron got you this time... Try again! The answer was "{{ word }}"</p>
-		<pre>
+		<pre class="baron">
                   XXXX
                  X    XX
                 X  ***  X                XXXXX
@@ -100,7 +100,7 @@
 		</div>
 		{% endif %}
     <div style="height:100px; position: relative">
-      <div style="border-bottom: 5px solid #FFE5F2; position: relative; top:-75px">
+      <div class="countercats" style="border-bottom: 5px solid #FFE5F2; position: relative; top:-75px">
         <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
         class="{% if guesses==0 %}dying{% endif %}" />
         <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
