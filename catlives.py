@@ -44,7 +44,7 @@ class Catlives:
             self.unserialize(data)
 
     def loadDictionary(self):
-        with open('yv_phrase_dict.txt') as dictionary:
+        with open('big_dict.txt') as dictionary:
             word = dictionary.read().split("\n")
         return word
 
