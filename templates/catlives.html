@@ -130,7 +130,7 @@
         class="{% if guesses==8 and not isCorrect %}dying{% endif %}
         {% if guesses<8 or guesses==8 and isCorrect %}dead{% endif %}" />
       </div>
-      <div style="height:100px; position: absolute; top: 35px; font-size:2em;">
+      <div class="wrongs">
         <div style="width:60px" class="wrong">{{ wrongLetters[8] }}</div>
         <div style="width:70px" class="wrong">{{ wrongLetters[7] }}</div>
         <div style="width:80px" class="wrong">{{ wrongLetters[6] }}</div>

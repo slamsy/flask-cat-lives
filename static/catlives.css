@@ -106,6 +106,14 @@ input {
     text-transform: uppercase;
 }
 
+.wrongs {
+    z-index: -1;
+    height:100px;
+    position: absolute;
+    top: 35px;
+    font-size:2em;"
+}
+
 @keyframes died {
     from {
         filter: blur(0px);
