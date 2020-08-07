@@ -61,6 +61,7 @@ class Catlives:
         return word[random.randint(0,len(word)-1)]
 
     def guess(self,letter):
+        letter = letter.lower()
         self.guessedLetter = letter
         self.alreadyGuessed = self.checkIfGuessed(input=letter)
         if self.alreadyGuessed == True:
