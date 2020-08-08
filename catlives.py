@@ -63,13 +63,12 @@ class Catlives:
 
     def guess(self,letter):
         self.nonAlphabetic = ""
+        letter = letter.lower()
+        self.guessedLetter = letter
+        self.alreadyGuessed = self.checkIfGuessed(input=letter)
         if letter.isalpha() == False:
             self.nonAlphabetic = letter
-            return self.nonAlphabetic
         else:
-            letter = letter.lower()
-            self.guessedLetter = letter
-            self.alreadyGuessed = self.checkIfGuessed(input=letter)
             if self.alreadyGuessed == True:
                 return True
             self.guessedLetters.append(letter)
