@@ -16,7 +16,7 @@ def index():
         catlives = Catlives()
     session['catlives'] = catlives.serialize()
     #return catlives.serialize()
-    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, isCorrect=catlives.CorrectorIncorrect, wrongLetters=''.join(catlives.wrongLetters), alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
+    return render_template('catlives.html',letters=catlives.answer, guess=catlives.guessedLetter, isCorrect=catlives.CorrectorIncorrect, wrongLetters=''.join(catlives.wrongLetters), nonAlphabetic=catlives.nonAlphabetic, alreadyGuessed=catlives.alreadyGuessed, guesses=catlives.numberOfGuesses, win=catlives.hasWon, loss=catlives.hasLost, word=catlives.word)
 
 @app.route('/rs')
 def reset():
@@ -36,6 +36,7 @@ class Catlives:
             self.answer = [''] * len(self.wordLetters)
             self.numberOfGuesses = 9
             self.CorrectorIncorrect = True
+            self.nonAlphabetic = ""
             self.alreadyGuessed = False
             self.hasWon = False
             self.hasLost = False
@@ -61,19 +62,24 @@ class Catlives:
         return word[random.randint(0,len(word)-1)]
 
     def guess(self,letter):
-        letter = letter.lower()
-        self.guessedLetter = letter
-        self.alreadyGuessed = self.checkIfGuessed(input=letter)
-        if self.alreadyGuessed == True:
-            return True
-        self.guessedLetters.append(letter)
-        self.guessedLetters.sort()
-        self.CorrectorIncorrect = self.checkIfCorrect(letter)
-        if not self.CorrectorIncorrect:
-            self.wrongLetters.append(letter)
-        self.fillInTheBlanks(letter)
-        self.hasWon = self.checkForWin()
-        self.hasLost = self.checkForLoss()
+        self.nonAlphabetic = ""
+        if letter.isalpha() == False:
+            self.nonAlphabetic = letter
+            return self.nonAlphabetic
+        else:
+            letter = letter.lower()
+            self.guessedLetter = letter
+            self.alreadyGuessed = self.checkIfGuessed(input=letter)
+            if self.alreadyGuessed == True:
+                return True
+            self.guessedLetters.append(letter)
+            self.guessedLetters.sort()
+            self.CorrectorIncorrect = self.checkIfCorrect(letter)
+            if not self.CorrectorIncorrect:
+                self.wrongLetters.append(letter)
+            self.fillInTheBlanks(letter)
+            self.hasWon = self.checkForWin()
+            self.hasLost = self.checkForLoss()
 
     def checkIfGuessed(self,input):
         for guessedLetter in self.guessedLetters:

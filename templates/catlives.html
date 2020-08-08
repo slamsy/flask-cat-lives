@@ -171,7 +171,11 @@
 		</div>
     <div style="display: flex; align-items: flex-end">
       <img src="static/9lives_logo.svg" style="height:120px;" alt="9lives logo with cat tail shaped as 9" />
-      <div class="message"><div>{% if alreadyGuessed == True %} Oops! You guessed this letter already. {% endif %}{% if not guessedLetters %} Please guess a letter! {% endif %}</div></div>
+      <div class="message"><div>
+				{% if alreadyGuessed == True %} Oops! You guessed this letter already. {% endif %}
+				{% if not nonAlphabetic == "" %} Wait a minute... {{ nonAlphabetic }} is not a letter. {% endif %}
+				{% if not guessedLetters %} Please guess a letter! {% endif %}
+			</div></div>
     </div>
 	</body>
 </html>
