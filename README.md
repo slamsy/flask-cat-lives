@@ -1,4 +1,11 @@
+# 9Lives
+
+Browser word game based on hangman but with cute cats instead. Built on Python in a Flask web framework. 
+Current master is stable and playable. 
+
 # Usage on FreeBSD
+
+To run the game locally:
 
 * Install Flask: http://flask.pocoo.org/docs/1.0/installation/
 * Script to run that serves the game on any IP address, port 5000:
