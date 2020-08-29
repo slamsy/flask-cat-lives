@@ -102,33 +102,33 @@
     <div style="height:100px; position: relative">
       <div class="countercats" style="border-bottom: 5px solid #FFE5F2; position: relative; top:-75px">
         <img src="static/Cat_sit_1.svg" style="height:75px; position: relative; top: 20px"
-        class="{% if wrongLetters[8]==guess %}dying{% endif %}" />
+        class="{% if wrongLetters[8]==guess %}dying{% endif %}" / alt="You have {{ 9 - wrongLetters | count }} lives left">
         <img src="static/Cat_sit_3.svg" style="height:75px; position: relative; top: 45px"
         class="{% if wrongLetters[7]==guess and not isCorrect %}dying
-        {% elif guesses<1 or guesses==1 %}dead{% endif %}" />
+        {% elif guesses<1 or guesses==1 %}dead{% endif %}" / alt="" role="presentation">
         <img src="static/Cat_fluffy_1.svg" style="height:75px; position: relative; top: 15px;"
         class="{% if wrongLetters[6]==guess and not isCorrect %}dying
-        {% elif guesses<2 or guesses==2 %}dead{% endif %}" />
+        {% elif guesses<2 or guesses==2 %}dead{% endif %}" / alt="" role="presentation">
         <img src="static/Cat_jump.svg" style="height:150px; position: relative; top: 83px"
         class="{% if wrongLetters[5]==guess and not isCorrect %}dying
-        {% elif guesses<3 or guesses==3 %}dead{% endif %}" />
+        {% elif guesses<3 or guesses==3 %}dead{% endif %}" / alt="" role="presentation">
         <img src="static/Cat_sit_2.svg" style="height:75px; position: relative; top: 25px"
         class="{% if wrongLetters[4]==guess and not isCorrect %}dying
-        {% elif guesses<4 or guesses==4 %}dead{% endif %}" />
+        {% elif guesses<4 or guesses==4 %}dead{% endif %}" / alt="" role="presentation">
         <img src="static/Cat_sit_4.svg" style="height:75px; position: relative; top: 20px"
         class="{% if wrongLetters[3]==guess and not isCorrect %}dying
-        {% elif guesses<5 or guesses==5 %}dead{% endif %}" />
+        {% elif guesses<5 or guesses==5 %}dead{% endif %}" / alt="" role="presentation">
         <div style="width:15px; display:inline-block"></div>
         <img src="static/Cat_stretch.svg" style="height:75px; position: relative; top: 17px"
         class="{% if wrongLetters[2]==guess and not isCorrect %}dying
-        {% elif guesses<6 or guesses==6 %}dead{% endif %}" />
+        {% elif guesses<6 or guesses==6 %}dead{% endif %}" / alt="" role="presentation">
         <div style="width:20px; display:inline-block"></div>
         <img src="static/Cat_walk.svg" style="height:75px; position: relative; top: 10px"
         class="{% if wrongLetters[1]==guess and not isCorrect %}dying
-        {% elif guesses<7 or guesses==7 %}dead{% endif %}" />
+        {% elif guesses<7 or guesses==7 %}dead{% endif %}" / alt="" role="presentation">
         <img src="static/Cat_fluffy_2.svg" style="height:75px; position: relative; top: 15px"
         class="{% if wrongLetters[0]==guess and not isCorrect %}dying
-        {% elif guesses<8 or guesses==8 %}dead{% endif %}" />
+        {% elif guesses<8 or guesses==8 %}dead{% endif %}" / alt="" role="presentation">
       </div>
       <div class="wrongs">
         <div style="width:60px" class="wrong">{{ wrongLetters[8] }}</div>
@@ -148,7 +148,9 @@
 					{% for letter in subword %}
 					<div class='blank
 					{% if guess==letter %}newBlankGuess{% endif %}
-					{% if letter!="" and not letter.isalpha() %}punc{% endif %}'>
+					{% if letter!="" and not letter.isalpha() %}punc{% endif %}' role="text" aria-label='
+					{% if letter %}blank{% else %}{{letter}}{% endif %}
+					'>
 						{% if not letter.isalpha() or letter in letters %}
 							{{ letter }}
 						{% endif %}
